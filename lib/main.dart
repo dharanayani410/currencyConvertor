@@ -82,16 +82,16 @@ class _MyAppState extends State<MyApp> {
                             onChanged: (val) {
                               setState(() {
                                 dropDownVal = val;
-                                //   if (dropDownVal == "INR") {
-                                //     convertToAmount = amount * data.inr;
-                                //   } else if (dropDownVal == "USD") {
-                                //     convertToAmount = amount * data.usd;
-                                //   } else if (dropDownVal == "AUD") {
-                                //     convertToAmount = amount * data.aud;
-                                //   } else if (dropDownVal == "CAD") {
-                                //     convertToAmount = amount * data.cad;
-                                //   }
-                                //   print("covert ${convertToAmount}");
+                                if (dropDownVal == "INR") {
+                                  convertToAmount = amount * data.inr;
+                                } else if (dropDownVal == "USD") {
+                                  convertToAmount = amount * data.usd;
+                                } else if (dropDownVal == "AUD") {
+                                  convertToAmount = amount * data.aud;
+                                } else if (dropDownVal == "CAD") {
+                                  convertToAmount = amount * data.cad;
+                                }
+                                print("covert ${convertToAmount}");
                               });
                             }),
                         const Text(
@@ -122,6 +122,7 @@ class _MyAppState extends State<MyApp> {
                                 dropDownVal1 = val;
                                 if (dropDownVal1 == "USD") {
                                   converterAmount = data.usd;
+                                  print(converterAmount);
                                   sign = "\$";
                                 } else if (dropDownVal1 == "AUD") {
                                   converterAmount = data.aud;
@@ -140,7 +141,8 @@ class _MyAppState extends State<MyApp> {
                         GestureDetector(
                           onTap: () {
                             setState(() {
-                              convertedAmount = amount * converterAmount;
+                              convertedAmount =
+                                  convertToAmount * converterAmount;
                               print(convertedAmount);
                             });
                           },
